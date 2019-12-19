@@ -5,14 +5,10 @@ exports.up = function(knex) {
       users.string('username', 128)
             .notNullable()
             .unique();
-      users.string('password', 128).notNullable();
-      users.integer('role_id')
-           .unsigned()
-           .notNullable()
-           .references('id')
-           .inTable('schemes')
-           .onUpdate('CASCADE')
-           .onDelete('CASCADE');
+      users.string('password', 128)
+           .notNullable();
+      users.string('role');
+           
   })
 };
 
